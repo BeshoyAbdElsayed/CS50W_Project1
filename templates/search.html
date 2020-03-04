@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h3>welcome {{ user }}</h3>
+
+    <form action="{{ url_for('result') }}", method="POST">
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search here" name="search">
+            <select class="form-control" name="search_by" required>
+                <option value="" disabled selected>search by</option>
+                <option value="isbn">isbn</option>
+                <option value="title">title</option>
+                <option value="auther">auther</option>
+                <option value="year">year</option>
+            </select>
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </form>
+    
+{% endblock %}
