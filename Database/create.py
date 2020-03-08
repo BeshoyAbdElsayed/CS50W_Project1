@@ -14,8 +14,8 @@ db = scoped_session(sessionmaker(bind=engine))
 # create tables
 db.execute("CREATE TABLE books(isbn VARCHAR PRIMARY KEY, title VARCHAR NOT NULL, auther VARCHAR NOT NULL, year INTEGER NOT NULL);")
 
-db.execute("CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR UNIQUE NOT NULL, password VARCHAR NOT NULL);")
+db.execute("CREATE TABLE users(name VARCHAR PRIMARY KEY, password VARCHAR NOT NULL);")
 
-db.execute("CREATE TABLE reviews(user_id INTEGER REFERENCES users, book_isbn VARCHAR REFERENCES books,rate DECIMAL NOT NULL CHECK(rate<=5 AND rate>=0), review VARCHAR, PRIMARY KEY(user_id, book_ISBN));")
+db.execute("CREATE TABLE reviews(user_name VARCHAR REFERENCES users, book_isbn VARCHAR REFERENCES books,rate DECIMAL NOT NULL CHECK(rate<=5 AND rate>=0), review VARCHAR, PRIMARY KEY(user_name, book_ISBN));")
 
 db.commit()

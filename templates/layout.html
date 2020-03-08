@@ -3,11 +3,29 @@
     <head>
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        #logout
+            {
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            };
+    </style>
     </head>
     <body>
+
         <div class="container">
+            <form action="{{url_for('logout')}}" id="logout">
+                <button class="btn btn-primary">logout</button>
+            </form>
             {% block body %}
             {% endblock %}
         </div>
+
+        <footer class="page-footer font-small blue">
+            <div class="footer-copyright text-center py-3">© 2020 creator:
+                    Beshoy Abd Elsayed
+              </div>
+        </footer>
     </body>
 </html>
